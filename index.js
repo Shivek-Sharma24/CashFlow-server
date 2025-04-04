@@ -3,15 +3,15 @@ const expenseRoutes = require("./routes/Expense");
 const cors = require("cors");
 const cookieparser = require("cookie-parser");
 const app = express();
+const port = process.env.port;
 
-const port = 5000;
 const bodyParser = require("body-parser");
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
 app.use(
   cors({
-    origin: "https://cash-flow-server.vercel.app",
+    origin: "https://cashflow-client.vercel.app",
     credentials: true,
     allowedHeaders: ["Authorization", "Content-Type"],
   })
