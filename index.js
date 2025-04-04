@@ -11,7 +11,7 @@ app.listen(port, () => {
 });
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://cash-flow-server.vercel.app/",
     credentials: true,
     allowedHeaders: ["Authorization", "Content-Type"],
   })
