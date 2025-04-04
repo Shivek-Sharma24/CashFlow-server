@@ -11,7 +11,7 @@ app.listen(port, () => {
 });
 app.use(
   cors({
-    origin: "https://cash-flow-server.vercel.app/",
+    origin: "https://cash-flow-server.vercel.app",
     credentials: true,
     allowedHeaders: ["Authorization", "Content-Type"],
   })
