@@ -3,6 +3,7 @@ const router = express.Router();
 const ExpenseDB = require("../models/ExpenseDB");
 require("dotenv").config();
 
+
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userModel = require("../models/UsersDB");
@@ -341,15 +342,6 @@ router.get("/category/:category", authMiddleware, async (req, res) => {
   }
 });
 
-// Delete an expense
-// router.delete("/delete/:id", async (req, res) => {
-//   try {
-//     await ExpenseDB.findByIdAndDelete(req.params.id);
-//     res.json({ message: "Expense deleted" });
-//   } catch (error) {
-//     res.status(400).json({ error: error.message });
-//   }
-// });
 
 router.delete("/delete/:id", authMiddleware, async (req, res) => {
   try {
@@ -381,53 +373,4 @@ router.delete("/delete/:id", authMiddleware, async (req, res) => {
 });
 
 
-<<<<<<< HEAD
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    const id = user._id;
-
-    let { month, year } = req.query;
-
-    // Get current year and month if not provided
-    const now = new Date();
-    if (!year) year = now.getFullYear();
-    if (!month) month = (now.getMonth() + 1).toString().padStart(2, "0"); // Ensure "01", "02", etc.
-
-    // Format for MongoDB aggregation
-    const targetMonth = `${year}-${month}`;
-
-    const totalExpense = await ExpenseDB.aggregate([
-      {
-        $match: {
-          userId: id,
-          date: {
-            $gte: new Date(`${targetMonth}-01T00:00:00.000Z`),
-            $lt: new Date(`${targetMonth}-31T23:59:59.999Z`),
-          },
-        },
-      },
-      {
-        $group: {
-          _id: targetMonth,
-          totalExpense: { $sum: "$amount" },
-        },
-      },
-    ]);
-
-    res.json(
-      totalExpense.length > 0
-        ? totalExpense[0]
-        : { _id: targetMonth, totalExpense: 0 }
-    );
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
 module.exports = router;
-
-=======
-module.exports = router;
->>>>>>> 4471984 (Update Backend)
