@@ -7,7 +7,7 @@ require("dotenv").config();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userModel = require("../models/UsersDB");
-const secretkey = process.env.SECRET_KEY;
+// const secretkey = process.env.SECRET_KEY;
 
 router.get("/", (req, res) => {
   res.send("server ruuning ");
@@ -298,7 +298,7 @@ async function authMiddleware(req, res, next) {
   }
 
   try {
-    const decoded = jwt.verify(token, secretkey); // Verify JWT
+    const decoded = jwt.verify(token, process.env.SECRET_KEY); // Verify JWT
     // console.log("Decoded Token:", decoded); // Log decoded payload
     // console.log(decoded)
     req.user = decoded; // Attach decoded data to request

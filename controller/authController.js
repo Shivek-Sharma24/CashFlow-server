@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-const secretkey = process.env.Secret_Key;
+// const SECRET_KEY = process.env.SECRET_KEY;
 const userModel = require("../models/UsersDB.js");
 
 
@@ -27,7 +27,7 @@ const userModel = require("../models/UsersDB.js");
         }
     
         // Generate JWT token
-        const token = jwt.sign({ email }, secretkey);
+        const token = jwt.sign({ email }, process.env.SECRET_KEY);
     
         // Set token in HTTP-only cookie
         // res.cookie("token", token, { httpOnly: true, sameSite: "strict" });
@@ -71,7 +71,7 @@ const signup = async (req, res) => {
                 email,
                 password: hash,
               });
-              const token = jwt.sign({ email }, secretkey);
+              const token = jwt.sign({ email }, process.env.SECRET_KEY);
               // res.cookie("token", token, { httpOnly: true });
               // console.log(token);
               res.status(201).json({
