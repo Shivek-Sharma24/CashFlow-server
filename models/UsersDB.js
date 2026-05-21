@@ -4,7 +4,9 @@ const password = process.env.DB_Password;
 
 mongoose
   .connect(
-   `mongodb+srv://shivek_24:${password}@shivek.6yh3v.mongodb.net/Cashflow?appName=shivek`
+   `mongodb+srv://shivek_24:${password}@shivek.6yh3v.mongodb.net/Cashflow?appName=shivek`,{
+     serverSelectionTimeoutMS: 5000
+   }
     // `mongodb+srv://shivek_24:${password}@shivek.6yh3v.mongodb.net/Cashflow`
     // {
     //   useNewUrlParser: true,
