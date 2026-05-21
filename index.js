@@ -25,4 +25,8 @@ app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
 
+app.get("/test" , (req , res)=>{
+  res.send("working")
+})
+
 
