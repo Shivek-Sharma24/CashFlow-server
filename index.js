@@ -8,7 +8,7 @@ const authRouter = require("./routes/authRoute.js");
 const bodyParser = require("body-parser");
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: "http://localhost:5173",
     credentials: true,
     allowedHeaders: ["Authorization", "Content-Type"],
   })

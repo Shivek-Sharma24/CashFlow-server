@@ -343,6 +343,7 @@ router.get("/category/:category", authMiddleware, async (req, res) => {
 });
 
 
+
 router.delete("/delete/:id", authMiddleware, async (req, res) => {
   try {
     const useremail = req.user.email;
