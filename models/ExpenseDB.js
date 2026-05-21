@@ -11,10 +11,11 @@ const expenseSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ["Food", "Transport", "Bills", "Shopping", "Entertainment", "Other"], // Predefined categories
+    enum: ["Food", "Entertainment","Health","Travel","Shopping" , "Other"], // Predefined categories
     default: "Other",
   },
   date: { type: Date, default: Date.now, require: true },
+  time: { type: String, required: true },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "users", // Reference to the User model

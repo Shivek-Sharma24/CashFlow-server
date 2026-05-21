@@ -4,11 +4,12 @@ const password = process.env.DB_Password;
 
 mongoose
   .connect(
-    `mongodb+srv://shivek_24:${password}@shivek.6yh3v.mongodb.net/Cashflow`,
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
+   `mongodb+srv://shivek_24:${password}@shivek.6yh3v.mongodb.net/Cashflow?appName=shivek`
+    // `mongodb+srv://shivek_24:${password}@shivek.6yh3v.mongodb.net/Cashflow`
+    // {
+    //   useNewUrlParser: true,
+    //   useUnifiedTopology: true,
+    // }
   )
   .then(() => {
     console.log("Database connected");

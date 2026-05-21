@@ -4,7 +4,6 @@ const cors = require("cors");
 const cookieparser = require("cookie-parser");
 
 const app = express();
-<<<<<<< HEAD
 const port = process.env.port;
 
 app.use(
@@ -21,23 +20,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieparser());
 
-=======
-const port = process.env.port || 5200;
-const authRouter = require("./routes/authRoute.js");
-const bodyParser = require("body-parser");
-app.use(
-  cors({
-    origin: ["http://localhost:5173"],
-    credentials: true,
-    allowedHeaders: ["Authorization", "Content-Type"],
-  })
-);
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(cookieparser());
-app.use("/auth", authRouter);
->>>>>>> 4471984 (Update Backend)
 app.use("/", expenseRoutes);
 
 app.listen(port, () => {
@@ -45,9 +27,6 @@ app.listen(port, () => {
 });
 
 
-<<<<<<< HEAD
 
 
 
-=======
->>>>>>> 4471984 (Update Backend)
